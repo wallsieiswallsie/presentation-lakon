@@ -1,0 +1,11 @@
+{
+  "name": "lakon-journey-presentation",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "node server.mjs . 5173",
+    "preview": "node server.mjs dist 4173"
+  }
+}

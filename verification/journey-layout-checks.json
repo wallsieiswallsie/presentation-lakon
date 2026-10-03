@@ -1,0 +1,507 @@
+{
+  "story": [
+    {
+      "background": "rgba(0, 0, 0, 0)",
+      "bottom": 800.9271545410156,
+      "clearOfNavigation": true,
+      "clippedChildren": [],
+      "ctaInCard": true,
+      "overflowX": 0,
+      "overflowY": 0,
+      "scene": "THE ENTRANCE",
+      "top": 286.7084045410156,
+      "viewport": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "background": "rgba(43, 32, 24, 0.9)",
+      "bottom": 782.37939453125,
+      "clearOfNavigation": true,
+      "clippedChildren": [],
+      "ctaInCard": true,
+      "overflowX": 0,
+      "overflowY": 0,
+      "scene": "THE CROSSROAD",
+      "top": 301.24395751953125,
+      "viewport": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "background": "rgba(43, 32, 24, 0.9)",
+      "bottom": 749.25,
+      "clearOfNavigation": true,
+      "clippedChildren": [],
+      "ctaInCard": true,
+      "overflowX": 0,
+      "overflowY": 0,
+      "scene": "LAKON THEATRE",
+      "top": 330.75,
+      "viewport": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "background": "rgba(43, 32, 24, 0.9)",
+      "bottom": 780.5677490234375,
+      "clearOfNavigation": true,
+      "clippedChildren": [],
+      "ctaInCard": true,
+      "overflowX": 0,
+      "overflowY": 0,
+      "scene": "COFFEE SHOP",
+      "top": 299.43231201171875,
+      "viewport": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "background": "rgba(43, 32, 24, 0.9)",
+      "bottom": 711.171875,
+      "clearOfNavigation": true,
+      "clippedChildren": [],
+      "ctaInCard": true,
+      "overflowX": 0,
+      "overflowY": 0,
+      "scene": "ACROSS THE COUNTER",
+      "top": 368.828125,
+      "viewport": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "background": "rgba(43, 32, 24, 0.9)",
+      "bottom": 761.625,
+      "clearOfNavigation": true,
+      "clippedChildren": [],
+      "ctaInCard": true,
+      "overflowX": 0,
+      "overflowY": 0,
+      "scene": "BROWSER LAB",
+      "top": 318.375,
+      "viewport": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "background": "rgba(43, 32, 24, 0.9)",
+      "bottom": 824.2604675292969,
+      "clearOfNavigation": true,
+      "clippedChildren": [],
+      "ctaInCard": true,
+      "overflowX": 0,
+      "overflowY": 0,
+      "scene": "VALIDATION GATE",
+      "top": 255.73959350585935,
+      "viewport": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "background": "rgba(0, 0, 0, 0)",
+      "bottom": 661.4413299560547,
+      "clearOfNavigation": true,
+      "clippedChildren": [],
+      "ctaInCard": true,
+      "overflowX": 0,
+      "overflowY": 0,
+      "scene": "THE ENTRANCE",
+      "top": 205.7850799560547,
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "background": "rgba(43, 32, 24, 0.9)",
+      "bottom": 674.4013977050781,
+      "clearOfNavigation": true,
+      "clippedChildren": [],
+      "ctaInCard": true,
+      "overflowX": 0,
+      "overflowY": 0,
+      "scene": "THE CROSSROAD",
+      "top": 240.62014770507812,
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "background": "rgba(43, 32, 24, 0.9)",
+      "bottom": 639.1875,
+      "clearOfNavigation": true,
+      "clippedChildren": [],
+      "ctaInCard": true,
+      "overflowX": 0,
+      "overflowY": 0,
+      "scene": "LAKON THEATRE",
+      "top": 260.8125,
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "background": "rgba(43, 32, 24, 0.9)",
+      "bottom": 666.890625,
+      "clearOfNavigation": true,
+      "clippedChildren": [],
+      "ctaInCard": true,
+      "overflowX": 0,
+      "overflowY": 0,
+      "scene": "COFFEE SHOP",
+      "top": 233.109375,
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "background": "rgba(43, 32, 24, 0.9)",
+      "bottom": 602.90625,
+      "clearOfNavigation": true,
+      "clippedChildren": [],
+      "ctaInCard": true,
+      "overflowX": 0,
+      "overflowY": 0,
+      "scene": "ACROSS THE COUNTER",
+      "top": 297.09375,
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "background": "rgba(43, 32, 24, 0.9)",
+      "bottom": 651.4375,
+      "clearOfNavigation": true,
+      "clippedChildren": [],
+      "ctaInCard": true,
+      "overflowX": 0,
+      "overflowY": 0,
+      "scene": "BROWSER LAB",
+      "top": 248.5625,
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "background": "rgba(43, 32, 24, 0.9)",
+      "bottom": 706.84375,
+      "clearOfNavigation": true,
+      "clippedChildren": [],
+      "ctaInCard": true,
+      "overflowX": 0,
+      "overflowY": 0,
+      "scene": "VALIDATION GATE",
+      "top": 193.15625,
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "background": "rgba(0, 0, 0, 0)",
+      "bottom": 549.8452758789062,
+      "clearOfNavigation": true,
+      "clippedChildren": [],
+      "ctaInCard": true,
+      "overflowX": 0,
+      "overflowY": 0,
+      "scene": "THE ENTRANCE",
+      "top": 193.3035888671875,
+      "viewport": [
+        1366,
+        768
+      ]
+    },
+    {
+      "background": "rgba(43, 32, 24, 0.9)",
+      "bottom": 576.0881042480469,
+      "clearOfNavigation": true,
+      "clippedChildren": [],
+      "ctaInCard": true,
+      "overflowX": 0,
+      "overflowY": 0,
+      "scene": "THE CROSSROAD",
+      "top": 200.8172607421875,
+      "viewport": [
+        1366,
+        768
+      ]
+    },
+    {
+      "background": "rgba(43, 32, 24, 0.9)",
+      "bottom": 548.0487976074219,
+      "clearOfNavigation": true,
+      "clippedChildren": [],
+      "ctaInCard": true,
+      "overflowX": 0,
+      "overflowY": 0,
+      "scene": "LAKON THEATRE",
+      "top": 220.04879760742188,
+      "viewport": [
+        1366,
+        768
+      ]
+    },
+    {
+      "background": "rgba(43, 32, 24, 0.9)",
+      "bottom": 571.6354370117188,
+      "clearOfNavigation": true,
+      "clippedChildren": [],
+      "ctaInCard": true,
+      "overflowX": 0,
+      "overflowY": 0,
+      "scene": "COFFEE SHOP",
+      "top": 196.36459350585935,
+      "viewport": [
+        1366,
+        768
+      ]
+    },
+    {
+      "background": "rgba(43, 32, 24, 0.9)",
+      "bottom": 514.71875,
+      "clearOfNavigation": true,
+      "clippedChildren": [],
+      "ctaInCard": true,
+      "overflowX": 0,
+      "overflowY": 0,
+      "scene": "ACROSS THE COUNTER",
+      "top": 253.28125,
+      "viewport": [
+        1366,
+        768
+      ]
+    },
+    {
+      "background": "rgba(43, 32, 24, 0.9)",
+      "bottom": 558.7239837646484,
+      "clearOfNavigation": true,
+      "clippedChildren": [],
+      "ctaInCard": true,
+      "overflowX": 0,
+      "overflowY": 0,
+      "scene": "BROWSER LAB",
+      "top": 209.2760467529297,
+      "viewport": [
+        1366,
+        768
+      ]
+    },
+    {
+      "background": "rgba(43, 32, 24, 0.9)",
+      "bottom": 582.359375,
+      "clearOfNavigation": true,
+      "clippedChildren": [],
+      "ctaInCard": true,
+      "overflowX": 0,
+      "overflowY": 0,
+      "scene": "VALIDATION GATE",
+      "top": 185.640625,
+      "viewport": [
+        1366,
+        768
+      ]
+    },
+    {
+      "background": "rgba(0, 0, 0, 0)",
+      "bottom": 520.8021087646484,
+      "clearOfNavigation": true,
+      "clippedChildren": [],
+      "ctaInCard": true,
+      "overflowX": 0,
+      "overflowY": 0,
+      "scene": "THE ENTRANCE",
+      "top": 170.3854217529297,
+      "viewport": [
+        1280,
+        720
+      ]
+    },
+    {
+      "background": "rgba(43, 32, 24, 0.9)",
+      "bottom": 547.5575714111328,
+      "clearOfNavigation": true,
+      "clippedChildren": [],
+      "ctaInCard": true,
+      "overflowX": 0,
+      "overflowY": 0,
+      "scene": "THE CROSSROAD",
+      "top": 181.13047790527344,
+      "viewport": [
+        1280,
+        720
+      ]
+    },
+    {
+      "background": "rgba(43, 32, 24, 0.9)",
+      "bottom": 521.062255859375,
+      "clearOfNavigation": true,
+      "clippedChildren": [],
+      "ctaInCard": true,
+      "overflowX": 0,
+      "overflowY": 0,
+      "scene": "LAKON THEATRE",
+      "top": 198.95806884765625,
+      "viewport": [
+        1280,
+        720
+      ]
+    },
+    {
+      "background": "rgba(43, 32, 24, 0.9)",
+      "bottom": 543.2135620117188,
+      "clearOfNavigation": true,
+      "clippedChildren": [],
+      "ctaInCard": true,
+      "overflowX": 0,
+      "overflowY": 0,
+      "scene": "COFFEE SHOP",
+      "top": 176.78646850585938,
+      "viewport": [
+        1280,
+        720
+      ]
+    },
+    {
+      "background": "rgba(43, 32, 24, 0.9)",
+      "bottom": 487.7708435058594,
+      "clearOfNavigation": true,
+      "clippedChildren": [],
+      "ctaInCard": true,
+      "overflowX": 0,
+      "overflowY": 0,
+      "scene": "ACROSS THE COUNTER",
+      "top": 232.2291717529297,
+      "viewport": [
+        1280,
+        720
+      ]
+    },
+    {
+      "background": "rgba(43, 32, 24, 0.9)",
+      "bottom": 531.7760620117188,
+      "clearOfNavigation": true,
+      "clippedChildren": [],
+      "ctaInCard": true,
+      "overflowX": 0,
+      "overflowY": 0,
+      "scene": "BROWSER LAB",
+      "top": 188.22396850585935,
+      "viewport": [
+        1280,
+        720
+      ]
+    },
+    {
+      "background": "rgba(43, 32, 24, 0.9)",
+      "bottom": 553.9375,
+      "clearOfNavigation": true,
+      "clippedChildren": [],
+      "ctaInCard": true,
+      "overflowX": 0,
+      "overflowY": 0,
+      "scene": "VALIDATION GATE",
+      "top": 166.0625,
+      "viewport": [
+        1280,
+        720
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "bottom": 521.0521087646484,
+      "overflow": [
+        0,
+        0
+      ],
+      "scene": "COMMUNITY HEALTH CENTRE",
+      "top": 198.9479217529297,
+      "viewport": [
+        1280,
+        720
+      ]
+    },
+    {
+      "bottom": 526.4274291992188,
+      "overflow": [
+        0,
+        0
+      ],
+      "scene": "PUBLIC TRANSPORT",
+      "top": 204.3232421875,
+      "viewport": [
+        1280,
+        720
+      ]
+    },
+    {
+      "bottom": 530.5782318115234,
+      "overflow": [
+        0,
+        0
+      ],
+      "scene": "JOB INTERVIEW",
+      "top": 208.4740447998047,
+      "viewport": [
+        1280,
+        720
+      ]
+    },
+    {
+      "bottom": 521.1000823974609,
+      "overflow": [
+        0,
+        0
+      ],
+      "scene": "EMERGENCY",
+      "top": 198.9958953857422,
+      "viewport": [
+        1280,
+        720
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "bottom": 532.603759765625,
+      "overflow": [
+        0,
+        0
+      ],
+      "scene": "PRIVACY EVIDENCE",
+      "top": 210.49957275390625
+    },
+    {
+      "bottom": 521.0521087646484,
+      "overflow": [
+        0,
+        0
+      ],
+      "scene": "CONTENT GOVERNANCE",
+      "top": 198.9479217529297
+    },
+    {
+      "bottom": 531.7760620117188,
+      "overflow": [
+        0,
+        0
+      ],
+      "scene": "SYSTEM ARCHITECTURE",
+      "top": 188.22396850585935
+    }
+  ]
+}

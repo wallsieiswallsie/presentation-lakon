@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3200 2400">
+  <defs>
+    <pattern id="paving" width="36" height="24" patternUnits="userSpaceOnUse"><rect width="36" height="24" fill="#e8dcc2"/><path d="M0 24V0H36M18 0V24" fill="none" stroke="#d6c8ab" stroke-width="1"/></pattern>
+    <g id="tree">
+      <ellipse cx="19" cy="65" rx="47" ry="17" fill="#726b45" opacity=".13"/>
+      <path d="M-5 20L-3 64 7 67 8 20" fill="#80674b"/><path d="M3 39L-17 14M5 30L23 5" fill="none" stroke="#80674b" stroke-width="6"/>
+      <path d="M-39 13C-60-22-31-53-10-48 5-77 46-46 39-28 70 2 37 40 13 33-10 47-40 36-39 13" fill="#78866a"/>
+      <path d="M-37-13C-42-34-23-53-10-48 3-65 25-53 31-39 0-43 4-17-13-13-19-1-35 2-37-13" fill="#94a181"/>
+      <path d="M-27 17Q-5 27 18 10" fill="none" stroke="#adba96" stroke-width="2" opacity=".5"/>
+    </g>
+    <g id="planter"><ellipse cy="15" rx="43" ry="12" fill="#776247" opacity=".12"/><path d="M-36-8L36-8 29 18-27 18Z" fill="#bda885"/><rect x="-39" y="-12" width="78" height="10" rx="3" fill="#d4bf9a"/><path d="M-30-12C-43-38-13-37-9-24 0-48 23-38 22-24 41-38 43-16 30-12" fill="#788568"/><path d="M-20-21L-11-14M9-30L9-16M27-24L23-15" stroke="#aab38c" stroke-width="3"/></g>
+    <g id="bench"><path d="M-39 7L-39 26M39 7L39 26" stroke="#615542" stroke-width="6"/><path d="M-44-20H44M-44-9H44M-46 5H46" stroke="#af8658" stroke-width="8"/><path d="M-37-26V9M37-26V9" stroke="#615542" stroke-width="4"/></g>
+    <g id="lamp"><ellipse cx="10" cy="8" rx="18" ry="5" fill="#726b45" opacity=".16"/><path d="M-8 0H8M0 0V-98" fill="none" stroke="#665741" stroke-width="6"/><path d="M-13-114H13L9-93H-9Z" fill="#f5e4ac" stroke="#665741" stroke-width="3"/><path d="M-17-115L0-127 17-115Z" fill="#665741"/></g>
+    <g id="bicycle" fill="none" stroke="#76634c" stroke-width="3"><circle cx="-23" cy="6" r="16"/><circle cx="25" cy="6" r="16"/><path d="M-23 6L-9-18 6 6H-23L-3-8 25 6 16-25H25M-16-20H-3"/></g>
+    <g id="bollard"><ellipse cx="4" cy="3" rx="12" ry="5" fill="#70684e" opacity=".15"/><rect x="-5" y="-24" width="10" height="28" rx="3" fill="#a39372"/><path d="M-5-17H5" stroke="#efdfb8" stroke-width="3"/></g>
+    <!-- Single-source centerlines: border and surface always share endpoints. -->
+    <path id="service-street" d="M-80 1010C480 650 1040 390 1630 520S2450 650 2540 960Q2670 1340 2740 1670T3260 2000"/>
+    <path id="arrival-walk" d="M1460 2480C1450 2050 1470 1760 1570 1510S1610 1110 1535 800"/>
+    <path id="scenario-walks" d="M1575 1265C1400 1250 1190 1210 1100 1110Q1065 1070 1080 1018 M1580 1265C1740 1260 1900 1210 1920 1100Q1930 1050 1910 1000 M1580 1265C1590 1160 1660 1115 1720 1065S1820 980 1840 880Q1870 770 1970 690Q2020 650 2028 618 M1920 1100C2040 1120 2200 1100 2280 990Q2330 920 2325 835"/>
+  </defs>
+  <!-- A continuous pedestrian district on the existing 3200 × 2400 camera canvas. -->
+  <rect width="3200" height="2400" fill="#e3ddc6"/>
+  <path d="M580 460Q1030 225 1550 350T2590 530L2680 1300Q2580 1550 2070 1490L1830 2070 720 2130 510 1360Z" fill="#d0d1b1"/>
+  <path d="M900 640Q1240 500 1560 555L1830 1010 1580 1130 1090 1080 870 890Z M1900 570L2340 580 2490 1080 2180 1230 1940 1080Z M1030 1300L1320 1380 1160 1790 910 1690Z M1810 1430L2080 1360 2190 1710 1780 1870Z" fill="#c0c7a5"/>
+  <!-- Service street stays secondary to the broad cream arrival walk. -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <use href="#service-street" stroke="#c9bea3" stroke-width="90"/>
+    <use href="#service-street" stroke="#ded3b8" stroke-width="76"/>
+    <use href="#service-street" stroke="#efe9d5" stroke-width="3" stroke-dasharray="20 23"/>
+  </g>
+  <!-- Main route: gate → shared plaza → café; branches reach each service frontage. -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- All borders first, then surfaces: junctions have no border crossing them. -->
+    <use href="#arrival-walk" stroke="#baab89" stroke-width="154"/>
+    <use href="#scenario-walks" stroke="#baab89" stroke-width="66"/>
+    <ellipse cx="1580" cy="1265" rx="224" ry="126" fill="#baab89"/>
+    <use href="#arrival-walk" stroke="url(#paving)" stroke-width="140"/>
+    <ellipse cx="1580" cy="1265" rx="217" ry="119" fill="url(#paving)"/>
+    <use href="#scenario-walks" stroke="#eee3cb" stroke-width="56"/>
+  </g>
+  <path d="M1430 2480C1420 2050 1435 1760 1531 1510L1539 1400" fill="none" stroke="#c3a666" stroke-width="9"/>
+  <path d="M1430 2480C1420 2050 1435 1760 1531 1510L1539 1400" fill="none" stroke="#e8d399" stroke-width="3"/>
+  <!-- Forecourt edges, low hedges and repeated human-scale furniture. -->
+  <g stroke="#b5be99" stroke-width="22" stroke-linecap="round"><path d="M1280 1840L1340 1600M1730 1840L1800 1590M1000 1190L1210 1320M2030 1190L1880 1340"/></g>
+  <g><use href="#tree" x="1220" y="1770"/><use href="#tree" x="1850" y="1790"/><use href="#tree" x="1280" y="1570"/><use href="#tree" x="1840" y="1540"/><use href="#tree" x="1200" y="1370"/><use href="#tree" x="1930" y="1400"/><use href="#tree" x="925" y="1050"/><use href="#tree" x="1220" y="900"/><use href="#tree" x="1770" y="820"/><use href="#tree" x="2160" y="1220"/><use href="#tree" x="2240" y="635"/><use href="#tree" x="1910" y="570"/><use href="#tree" x="1300" y="630"/><use href="#tree" x="1070" y="670"/><use href="#tree" x="2380" y="1120"/><use href="#tree" x="2410" y="580"/><use href="#tree" x="1690" y="440"/><use href="#tree" x="830" y="1310"/><use href="#tree" x="2050" y="1660"/></g>
+  <g><use href="#bench" x="1370" y="1400"/><use href="#bench" x="1790" y="1400"/><use href="#bench" x="1040" y="1180"/><use href="#bench" x="1980" y="1205"/></g>
+  <g><use href="#planter" x="1370" y="1450"/><use href="#planter" x="1790" y="1450"/><use href="#planter" x="1350" y="930"/><use href="#planter" x="1690" y="930"/><use href="#planter" x="2020" y="1135"/><use href="#planter" x="2250" y="1025"/></g>
+  <g><use href="#lamp" x="1390" y="1760"/><use href="#lamp" x="1705" y="1760"/><use href="#lamp" x="1410" y="1530"/><use href="#lamp" x="1750" y="1530"/><use href="#lamp" x="1300" y="1210"/><use href="#lamp" x="1840" y="1260"/><use href="#lamp" x="1660" y="1020"/></g>
+  <use href="#bicycle" x="1330" y="1010"/><use href="#bicycle" x="1380" y="1035"/>
+  <g><use href="#bollard" x="1420" y="1870"/><use href="#bollard" x="1640" y="1870"/><use href="#bollard" x="1350" y="1830"/><use href="#bollard" x="1730" y="1830"/></g>
+  <g transform="translate(1170 850)"><path d="M0 0L45 22M-9 18L36 40M-18 36L27 58M-27 54L18 76" stroke="#f8efda" stroke-width="11"/></g>
+  <g transform="translate(1970 700)" fill="#f6eddb" stroke="#bba885" stroke-width="3"><rect width="72" height="39" rx="3"/><path d="M13 13H59M13 25H47"/></g>
+  <g transform="translate(1740 1200)"><path d="M0 0V93" stroke="#887052" stroke-width="8"/><path d="M-63 0H61L73 17 61 34H-63Z" fill="#f2e7cf" stroke="#a99269" stroke-width="2"/><text y="22" text-anchor="middle" fill="#65513b" font-family="Arial,sans-serif" font-size="14">PLAZA LAKON</text></g>
+</svg>

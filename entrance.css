@@ -1,0 +1,132 @@
+/* Shared illustrated town: the existing world coordinate system and camera stay intact. */
+.world{background:#e3ddc6}
+.map-lines{opacity:1;pointer-events:none}
+.district{width:300px;padding:0;border:0;background:none;gap:0;cursor:pointer;filter:none;transform-origin:50% 80%;transition:transform .2s ease}
+.district img{width:300px;height:270px;object-fit:contain;pointer-events:none}
+.district .district-label{display:flex;flex-direction:column;align-items:center;gap:5px;color:#4d3d2b;font:600 23px/1.2 Georgia,serif;letter-spacing:0;text-shadow:none;background:#f6edd8;border:1px solid #bba781;border-radius:3px;padding:10px 16px;box-shadow:0 4px 0 #b7a482;white-space:nowrap}
+.district .district-label small{font:12px/1.3 Arial,sans-serif;letter-spacing:.09em;text-transform:uppercase;color:#766244}
+.district .district-action{font:16px/1.3 Arial,sans-serif;letter-spacing:0;text-shadow:none;color:#fff4d7;background:#63503a;padding:8px 15px;border-radius:3px;position:absolute;top:100%;margin-top:10px;opacity:0;transform:translateY(-4px);transition:opacity .15s,transform .15s;pointer-events:none}
+.district:hover,.district:focus-visible{transform:translateY(-5px);z-index:3;outline:3px solid #8b714c;outline-offset:8px;border-radius:12px}
+.district:hover .district-action,.district:focus-visible .district-action{opacity:1;transform:translateY(0)}
+.district.active{transform:translateY(-5px);filter:none}
+.district.active .district-label{outline:3px solid #8b714c;outline-offset:4px}
+.district-health{left:1790px;top:780px}
+.district-transit{left:950px;top:790px}
+.district-coffee{left:1360px;top:570px}
+.district-work{left:1910px;top:390px}
+.district-emergency{left:2140px;top:600px}
+.district-theatre{left:1330px;top:1025px;width:125px;cursor:default}
+.district-theatre img{width:125px;height:125px}
+.district-theatre span{color:#68553d;font:11px Arial,sans-serif;letter-spacing:.05em;text-shadow:none}
+.district-theatre:hover{transform:none;outline:none}
+.walker{width:29px;height:52px;filter:none;pointer-events:none}
+.walker-one{left:1510px;top:1770px}
+.walker-two{left:1630px;top:1420px}
+.world-sign{padding:8px 12px;background:#f0e3c5;border-color:#b59c70;color:#6a563b;box-shadow:0 4px 0 #b9a584;font-size:11px}
+.sign-a{left:1330px;top:830px}.sign-b{left:1650px;top:820px}.sign-c{left:1300px;top:880px}
+.entrance-mode .world-sign{visibility:hidden}
+.waypoint-mark{background:#f4e7ca;color:#7c6341;border-color:#b89a64;box-shadow:none}
+.mark-cross{left:1555px;top:1330px;width:40px;height:40px;font-size:10px}
+.mark-entrance{left:1500px;top:1885px;width:65px;height:34px;border-radius:18px;font:11px Arial,sans-serif;letter-spacing:.12em}
+.mark-gate{left:1465px;top:170px}
+.lab-beacon{left:2260px;top:1240px;color:#61503c;text-shadow:none;font-size:12px}
+.beacon-ring{width:14px;height:14px;background:#ad9563;border-color:#876c44;box-shadow:none}
+.horizon-glow{display:none}
+.entrance-gate{position:absolute;left:1325px;top:1560px;width:440px;height:235px;pointer-events:none}
+.gate-beam{position:relative;z-index:1;display:flex;align-items:center;flex-direction:column;background:#5a4632;border:5px solid #b7a077;border-top:10px solid #776045;border-radius:4px;box-shadow:8px 9px 0 #58493620;padding:15px 10px 16px;color:#f5e7c5}
+.gate-beam>span{font:12px Arial,sans-serif;letter-spacing:.26em;color:#d4c09c}
+.gate-beam strong{font:600 61px/1.13 Georgia,serif;letter-spacing:.13em;margin-left:.13em}
+.gate-beam small{font:14px Arial,sans-serif;letter-spacing:.08em;color:#e0ceaa}
+.gate-post{position:absolute;top:100px;bottom:0;width:25px;background:#c8b390;border:4px solid #b39b76;border-bottom:15px solid #a99572;box-shadow:7px 5px 0 #61503818}
+.gate-post-left{left:16px}.gate-post-right{right:16px}
+.orientation-board{position:absolute;left:1450px;top:1120px;width:260px;text-align:left;background:#f7edd6;border:7px solid #94784f;padding:16px 14px 14px;color:#59462e;cursor:pointer;box-shadow:6px 7px 0 #7865441a;transform:rotate(-3deg)}
+.orientation-board::before,.orientation-board::after{content:"";position:absolute;top:100%;width:9px;height:38px;background:#94784f}
+.orientation-board::before{left:12px}.orientation-board::after{right:12px}
+.orientation-board small{display:block;font:13px/1.5 Arial,sans-serif;letter-spacing:.09em;color:#7b6543}
+.orientation-board strong{display:block;font:600 27px Georgia,serif;margin:9px 0}
+.orientation-board>span{display:block;font:16px/1.5 Arial,sans-serif}
+.orientation-board b{display:block;margin-top:16px;border-top:1px solid #ccbb96;padding-top:12px;font:600 19px Arial,sans-serif;color:#65704f}
+.orientation-board:hover,.orientation-board:focus-visible{outline:4px solid #685334;outline-offset:7px}
+button:focus-visible{outline:2px solid #d0ac69;outline-offset:5px}
+/* Warm daylight is the establishing shot; later presentation stops retain contrast. */
+#presentation:not(.entrance-mode) .camera::after{content:"";position:absolute;inset:0;background:#211a158c;pointer-events:none}
+#presentation:not(.entrance-mode) .camera{background:#e3ddc6}
+/* One bounded narrative surface for story, scenario, evidence and counter views.
+   The old 840 × 700 pseudo-element was itself creating scrollable overflow. */
+#presentation:not(.entrance-mode) .journey-card{
+  display:flex;flex-direction:column;gap:clamp(14px,2vh,22px);
+  left:4.5vw;top:50%;transform:translateY(-50%);
+  width:min(680px,49vw);max-width:calc(100vw - 9vw);height:auto;
+  padding:clamp(22px,3vh,34px);overflow:visible;
+  background:rgba(43,32,24,.9);border:1px solid #b99a644d;border-radius:8px;
+  box-shadow:0 18px 45px #20170f26,inset 0 1px 0 #f5e6c50a;text-shadow:none;
+}
+#presentation:not(.entrance-mode) .story-panel::before{content:none}
+#presentation:not(.entrance-mode) .journey-card>*{min-width:0;max-width:100%;flex-shrink:0}
+#presentation:not(.entrance-mode) .journey-card :is(h1,h2){font:600 clamp(38px,min(4vw,5.7vh),58px)/1.08 var(--serif);letter-spacing:-.035em;margin:0;color:#f0e3cb;overflow-wrap:break-word}
+#presentation:not(.entrance-mode) .journey-card p{max-width:65ch;margin:0;font-size:clamp(13px,1.65vh,15px);line-height:1.65;color:#d2c6b1}
+#presentation:not(.entrance-mode) .journey-card .eyebrow{gap:10px;line-height:1.5}
+#presentation:not(.entrance-mode) .journey-card .eyebrow-line{flex:0 0 24px}
+#presentation:not(.entrance-mode) .journey-card #stepCount{flex-shrink:0}
+#presentation:not(.entrance-mode) .journey-card .tag-row{display:flex;flex-wrap:wrap;gap:6px;margin:0;max-width:100%}
+#presentation:not(.entrance-mode) .journey-card .tag-row span{max-width:100%;padding:6px 9px;line-height:1.4;overflow-wrap:break-word}
+#presentation:not(.entrance-mode) .journey-card .panel-actions{display:flex;flex-wrap:wrap;gap:12px 16px;align-items:center;margin:0;padding-top:4px}
+#presentation:not(.entrance-mode) .journey-card .primary-button{max-width:100%;padding:12px 16px;line-height:1.4;white-space:normal}
+#presentation:not(.entrance-mode) .journey-card .key-hint{line-height:1.5}
+#presentation:not(.entrance-mode) .journey-card>.text-button{align-self:flex-start}
+@media(max-height:800px){
+  #presentation:not(.entrance-mode) .journey-card{gap:14px;padding:22px}
+  #presentation:not(.entrance-mode) .journey-card .tag-row span{padding:5px 9px}
+}
+@media(max-width:640px){
+  #presentation:not(.entrance-mode) .journey-card{left:5vw;width:90vw;max-width:90vw;padding:20px;gap:14px}
+  #presentation:not(.entrance-mode) .journey-card :is(h1,h2){font-size:clamp(28px,7vw,38px)}
+  #presentation:not(.entrance-mode) .journey-card p{font-size:12px}
+  #presentation:not(.entrance-mode) .journey-card .panel-actions{align-items:flex-start;flex-direction:column;gap:8px}
+  #presentation:not(.entrance-mode) .journey-card .key-hint{display:block}
+}
+#presentation.entrance-mode{background:#f5f0e3;color:#433527;--ink:#433527;--gold:#957448;--muted:#7f705b}
+.entrance-mode .sky{background:#f5f0e3}
+.entrance-mode .camera::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,#f5f0e3 0%,#f5f0e3 28%,#f5f0e3ed 34%,#f5f0e300 48%),linear-gradient(0deg,#f5f0e3 0%,#f5f0e300 14%,#f5f0e300 87%,#f5f0e3 100%)}
+.entrance-mode .grain{opacity:.035}
+.entrance-mode .topbar{height:92px;background:#f5f0e3e8;border-bottom:1px solid #aa93612b}
+.entrance-mode .brand img{width:43px;height:43px;max-height:none}
+.entrance-mode .brand strong{color:#473625;font-size:21px;letter-spacing:.14em}
+.entrance-mode .brand>span{color:#8a795f;font-size:8px;max-width:160px;line-height:1.7}
+.entrance-mode .top-actions #modeLabel{color:#7d705a}
+.entrance-mode .icon-button{border-color:#b29b723d;background:#ede5d3;color:#645239}
+.entrance-mode .icon-button:hover,.entrance-mode .icon-button[aria-pressed=true]{background:#d7c6a1}
+.entrance-mode .story-panel{left:5.5vw;top:48%;width:31vw;max-width:440px;transform:translateY(-45%);text-shadow:none}
+.entrance-mode .story-panel::before{display:none}
+.entrance-mode .eyebrow{color:#8c744b;font-size:9px;letter-spacing:.13em;line-height:1.6}
+.entrance-mode .eyebrow #stepCount{display:none}
+.entrance-mode .eyebrow-line{width:22px;flex-shrink:0}
+.entrance-mode .story-panel h1{color:#4b3927;font-size:clamp(36px,3.5vw,66px);line-height:1.08;font-weight:500;letter-spacing:-.045em;margin:28px 0 24px}
+.entrance-mode .story-panel p{color:#7a6b54;font-size:clamp(13px,1.08vw,17px);line-height:1.85;max-width:340px}
+.entrance-mode .tag-row{gap:9px;margin-top:22px}
+.entrance-mode .tag-row span{font-size:11px;padding:0 10px 0 0;border:0;border-radius:0;color:#72785a}
+.entrance-mode .tag-row span+span{padding-left:13px;border-left:1px solid #b8ac8d}
+.entrance-mode .panel-actions{gap:15px;align-items:flex-start;flex-direction:column;margin-top:32px}
+.entrance-mode .primary-button{background:#5d4832;color:#f7ecd1;padding:15px 21px;border-radius:4px;box-shadow:0 4px 0 #c8b58f;font-size:12px}
+.entrance-mode .primary-button:hover{background:#79603f}
+.entrance-mode .key-hint{color:#998768;font-size:8px}
+.entrance-mode .route-caption{color:#76654c;font:11px/1.5 Arial,sans-serif;letter-spacing:.015em;bottom:89px;right:6vw}
+.entrance-mode .bottombar{background:#f5f0e3ed;height:65px;border-top:1px solid #ab946335}
+.entrance-mode .progress-track{background:#c8b99850;top:-1px}
+.entrance-mode .footer-left,.entrance-mode .footer-right{color:#8a795d}
+.entrance-mode .footer-left #locationLabel{color:#58452f}
+.entrance-mode .text-button{color:#76603f}
+.entrance-mode .overlay,.entrance-mode .notes{color:#f3e8d0}
+.entrance-mode .overlay .eyebrow{color:#d0ae70}
+.entrance-mode .overlay .eyebrow-line{background:#c39752}
+.entrance-mode .overlay .close-button{color:#c8b590}
+#presentation.entrance-mode.safe-mode .story-panel{background:#f5f0e3;border:1px solid #b4a07d;padding:22px}
+@media(min-width:641px) and (max-height:800px){.entrance-mode .story-panel h1{font-size:clamp(34px,3.3vw,52px);margin:20px 0}.entrance-mode .story-panel p{font-size:13px}.entrance-mode .panel-actions{margin-top:25px}.entrance-mode .topbar{height:78px}.entrance-mode .route-caption{bottom:78px}}
+@media(max-width:1000px) and (min-width:641px){.entrance-mode .brand>span{display:none}.entrance-mode .story-panel{left:4vw;width:33vw}.entrance-mode .story-panel h1{font-size:36px}.entrance-mode .eyebrow{font-size:8px}.entrance-mode .route-caption{font-size:9px}}
+@media(max-width:640px){
+  .entrance-mode .topbar{height:62px;padding:0 5vw}.entrance-mode .brand{gap:7px}.entrance-mode .brand img{width:30px;height:30px}.entrance-mode .brand strong{font-size:16px}.entrance-mode .top-actions{gap:4px}.entrance-mode .icon-button{width:28px;height:28px;font-size:13px}
+  .entrance-mode .camera::after{background:linear-gradient(0deg,#f5f0e3 0%,#f5f0e3 40%,#f5f0e300 58%,#f5f0e300 90%,#f5f0e3 100%)}
+  .entrance-mode .story-panel{left:7vw;top:55%;width:86vw;max-width:none;transform:none}.entrance-mode .story-panel h1{font-size:clamp(29px,8vw,40px);margin:12px 0}.entrance-mode .story-panel p{font-size:12px;line-height:1.6;max-width:100%}.entrance-mode .eyebrow{font-size:8px}.entrance-mode .panel-actions{margin-top:18px}.entrance-mode .primary-button{padding:11px 15px}.entrance-mode .bottombar{height:42px}.entrance-mode #chapterLabel{display:none}.entrance-mode .footer-left .separator{display:none}
+  .district .district-action{display:none}
+}
+@media(max-width:640px) and (max-height:720px){.entrance-mode .story-panel{top:53%}.entrance-mode .story-panel h1{font-size:28px;margin:10px 0}.entrance-mode .story-panel p{font-size:11px}.entrance-mode .panel-actions{margin-top:12px}}
