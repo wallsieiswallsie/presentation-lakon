@@ -1,0 +1,91 @@
+/* Stage: script illustrations that drop in beat by beat, beside the story card. */
+#presentation:not(.entrance-mode) .journey-card{width:min(600px,44vw)}
+#presentation:not(.entrance-mode) .camera::after{background:#211a1599}
+.stage{position:absolute;z-index:5;right:3vw;top:96px;bottom:82px;width:46vw;pointer-events:none}
+.entrance-mode .stage{display:none}
+.stage::before{content:"";position:absolute;inset:-20px -20px -14px;border-radius:18px;background:#efe4cb;
+  background-image:radial-gradient(ellipse at 50% 0%,#fbf4e4 0%,transparent 70%);box-shadow:0 24px 60px #0d0907b3,inset 0 0 0 1px #d6c29c}
+.stage-set{position:absolute;inset:0;transition:opacity .35s}
+.stage-set.leaving{opacity:0}
+.piece{position:absolute;display:block;margin:0;opacity:0;transform:translateY(34px) rotate(var(--r)) scaleX(var(--flip)) scale(.9);
+  transition:opacity .45s ease,transform .6s cubic-bezier(.2,1.5,.4,1);filter:drop-shadow(0 8px 10px rgba(80,58,30,.28))}
+.piece.on{opacity:1;transform:translateY(0) rotate(var(--r)) scaleX(var(--flip)) scale(1)}
+img.piece{height:auto}
+.piece-tokoh{z-index:2}
+.piece.glow{filter:none;z-index:0;mix-blend-mode:multiply;opacity:.7}
+
+/* Photos as pinned prints. */
+.piece-foto,.world-photo{background:#f6eedd;padding:8px 8px 0;border-radius:2px}
+.piece-foto img,.world-photo img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.piece-foto figcaption,.world-photo figcaption{font:600 15px/1.25 var(--serif);color:#3f3022;padding:8px 2px 9px}
+.piece-foto figcaption small{display:block;font:9px/1.4 var(--mono);color:#8b7a60;letter-spacing:.04em;margin-top:3px}
+.piece-foto.plain img{aspect-ratio:auto;object-fit:contain;background:#fff}
+
+/* HTML pieces. */
+.device-frame{width:100%;height:100%;border:2px dashed #b8904f;border-radius:16px;background:#e4d5b6}
+.device-frame span{position:absolute;left:18px;bottom:12px;font:10px var(--mono);letter-spacing:.14em;color:#8a6a3c}
+.piece-html:has(.device-frame){filter:none}
+.stat{position:relative;background:#fbf6ea;box-shadow:inset 0 0 0 1px #dccaa6;border-radius:8px;padding:14px 18px;color:#3d2e20;min-height:min(150px,17vh)}
+.stat b{display:block;font:600 clamp(40px,6.4vh,72px)/1 var(--serif);letter-spacing:-.03em}
+.stat span{display:block;font-size:clamp(11px,1.5vh,14px);color:#6f5e47;margin-top:6px}
+.stat img{position:absolute;right:14px;top:14px;width:clamp(36px,6vh,58px)}
+.footnote{background:#c5904c;color:#241b14;border-radius:8px;padding:16px 20px;font:500 clamp(16px,2.3vh,22px)/1.35 var(--serif)}
+.chips{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:6px}
+.chips span{background:#3d2e20;color:#f6eedd;border-radius:20px;padding:8px 14px;font-weight:700;font-size:clamp(11px,1.6vh,15px)}
+.chips i{color:#d1a45c;font-style:normal;font-weight:700}
+
+/* Open world: member characters and opening photos live inside the camera world. */
+.citizen{position:absolute;height:auto;pointer-events:none;filter:drop-shadow(0 6px 4px rgba(60,45,25,.3));z-index:1}
+.world-photo{position:absolute;width:250px;z-index:2;pointer-events:none;box-shadow:0 10px 18px rgba(60,45,25,.3);
+  opacity:0;transform:translateY(30px) rotate(var(--r)) scale(.85);transition:opacity .5s,transform .7s cubic-bezier(.2,1.5,.4,1)}
+.world-photo figcaption{font-size:20px;text-align:center}
+.opening-photos .world-photo{opacity:1;transform:translateY(0) rotate(var(--r)) scale(1)}
+.opening-photos .world-photo:nth-of-type(2){transition-delay:.15s}
+.opening-photos .world-photo:nth-of-type(3){transition-delay:.3s}
+
+#presentation.overview .stage{opacity:0}
+@media(max-width:900px){.stage{width:50vw;right:1vw}}
+@media(max-width:640px){.stage{top:auto;bottom:46px;height:44vh;width:94vw;right:3vw;opacity:.35}}
+#presentation:not(.entrance-mode) .route-caption{display:none}
+
+/* Panels: hidden while the camera travels, closable one by one or together (H). */
+.story-panel,.stage{transition:opacity .45s ease,translate .5s cubic-bezier(.2,1.2,.4,1),visibility 0s}
+.travelling .story-panel,.card-off .story-panel,.travelling .stage,.stage-off .stage{opacity:0;visibility:hidden;translate:0 18px;transition:opacity .2s,translate .2s,visibility 0s .2s}
+.camera::after{transition:background .5s}
+#presentation.travelling .camera::after,#presentation.world-clear .camera::after{background:transparent}
+.panel-close{position:absolute;z-index:3;top:-12px;right:-12px;width:30px;height:30px;border-radius:50%;border:1px solid #c9a875;background:#3b2e23;color:#f0e3cb;font-size:18px;line-height:1;cursor:pointer;pointer-events:auto}
+.panel-close:hover{background:#9a7345}
+.entrance-mode .panel-close{background:#ede5d3;color:#5d4832;border-color:#b29b72}
+.stage .panel-close{top:-30px;right:-30px}
+
+/* Canva deck: covers everything, including the toolbar. */
+.deck-button{height:37px;padding:0 14px;border:1px solid #c9a87543;border-radius:19px;background:#c5904c;color:#241b14;font:700 11px var(--sans);cursor:pointer}
+.deck-button:hover{background:#dfb46e}
+.deck{position:absolute;inset:0;z-index:50;background:#0d0a08;display:grid;place-items:center}
+.deck[hidden]{display:none}
+.deck iframe{width:min(100vw,177.78vh);height:min(100vh,56.25vw);border:0}
+.deck-bar{position:absolute;z-index:1;top:10px;right:10px;display:flex;align-items:center;gap:8px;padding:6px;border-radius:22px;background:#211a15d9;opacity:.45;transition:opacity .2s;font:11px var(--sans)}
+.deck-bar:hover,.deck-bar:focus-within{opacity:1}
+.deck-bar span{color:#b8aa92;padding:0 6px}
+.deck-bar a{color:#e3c28a;text-decoration:none;padding:7px 10px}
+.deck-bar button{border:0;border-radius:16px;background:#c5904c;color:#241b14;font-weight:700;padding:8px 14px;cursor:pointer}
+@media(max-width:640px){.deck-bar span{display:none}.deck-button{padding:0 10px}}
+
+/* SDG cards (impact scene). */
+.sdg-card{background:#fbf6ea;border-radius:10px;overflow:hidden;box-shadow:inset 0 0 0 1px #dccaa6}
+.sdg-photo{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+.sdg-body{display:flex;gap:12px;align-items:flex-start;padding:12px 14px 4px}
+.sdg-icon{width:clamp(64px,10vh,104px);flex-shrink:0;border-radius:4px}
+.sdg-body b{display:block;font:10px var(--mono);letter-spacing:.12em;color:#9a7345;text-transform:uppercase}
+.sdg-body strong{display:block;font:600 clamp(15px,2.3vh,22px)/1.15 var(--serif);color:#3d2e20;margin:3px 0 5px}
+.sdg-body span{display:block;font-size:clamp(11px,1.45vh,13px);line-height:1.45;color:#6f5e47}
+.sdg-card small{display:block;padding:2px 14px 10px;font:8px var(--mono);color:#a8977b}
+.small .sdg-body{flex-direction:column;gap:8px;padding:10px 10px 2px}
+.small .sdg-icon{width:clamp(48px,7vh,70px)}
+.small .sdg-body strong{font-size:clamp(13px,1.9vh,17px)}
+.small .sdg-body span{font-size:clamp(10px,1.35vh,12px)}
+.small small{padding:2px 10px 8px}
+.sdg-strip{display:flex;align-items:center;gap:8px;background:#fbf6ea;border-radius:10px;padding:8px 12px;box-shadow:inset 0 0 0 1px #dccaa6}
+.sdg-strip img{width:clamp(34px,5.4vh,52px);border-radius:3px}
+.sdg-strip span{font:9px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#9a7345;margin-left:6px}
+.sdg-strip em{margin-left:auto;font:normal 9px var(--mono);color:#a8977b;text-align:right}

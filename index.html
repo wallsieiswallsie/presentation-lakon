@@ -7,9 +7,9 @@
     <link rel="icon" href="data:," />
     <meta name="description" content="LAKON — A Journey Through Communication. An interactive presentation about scenario-based sign-language learning." />
     <title>LAKON — A Journey Through Communication</title>
-    <link rel="preload" href="/assets/lakon/coffee/panggung-barista-lambai.png" as="image" />
     <link rel="stylesheet" href="/styles.css" />
     <link rel="stylesheet" href="/entrance.css" />
+    <link rel="stylesheet" href="/stage.css" />
     <script defer src="/app.js"></script>
   </head>
   <body>
@@ -28,8 +28,6 @@
           <div class="world-sign sign-a">HELLO</div><div class="world-sign sign-b">PAYMENT</div><div class="world-sign sign-c">HOT</div>
           <div class="entrance-gate" aria-label="Welcome to LAKON"><div class="gate-beam"><span>SELAMAT DATANG DI</span><strong>LAKON</strong><small>One Scenario. Two Roles.</small></div><i class="gate-post gate-post-left"></i><i class="gate-post gate-post-right"></i></div>
           <button class="orientation-board" id="orientationBoard" aria-label="Open the LAKON district map"><small>YOU ARE HERE</small><strong>Plaza LAKON</strong><span>5 everyday situations</span><b>View district map ↗</b></button>
-          <img class="walker walker-one" src="/assets/lakon/common/pejalan-perempuan.svg" alt="" />
-          <img class="walker walker-two" src="/assets/lakon/common/pejalan-laki-laki.svg" alt="" />
           <div class="waypoint-mark mark-cross"><span>01</span></div>
           <div class="waypoint-mark mark-entrance"><span>START</span></div>
           <div class="waypoint-mark mark-gate"><span>03</span></div>
@@ -39,21 +37,22 @@
       </div>
       <header class="topbar">
         <div class="brand"><img src="/assets/lakon/common/logo-lakon.svg" alt=""/><strong>LAKON</strong><span>A JOURNEY THROUGH COMMUNICATION</span></div>
-        <div class="top-actions"><span id="modeLabel">STORY MODE</span><button id="mapButton" class="icon-button" aria-label="Open map overview" title="Map overview (M)">⌖</button><button id="qaButton" class="icon-button" aria-label="Open Q&A mode" title="Q&A mode (Q)">Q<span class="sr-only">&amp;A</span></button><button id="safeButton" class="icon-button" aria-label="Toggle safe mode" title="Toggle Safe Mode">◐</button><button id="motionButton" class="icon-button" aria-label="Toggle reduced motion" title="Toggle Reduced Motion">≈</button><button id="fullButton" class="icon-button" aria-label="Toggle fullscreen" title="Fullscreen (F)">⛶</button></div>
+        <div class="top-actions"><span id="modeLabel">STORY MODE</span><button id="deckButton" class="deck-button" aria-pressed="false" title="Canva deck (C)">▶ Canva</button><button id="panelsButton" class="icon-button" aria-pressed="false" aria-label="Show or hide panels" title="Show / hide panels (H)">▤</button><button id="mapButton" class="icon-button" aria-label="Open map overview" title="Map overview (M)">⌖</button><button id="qaButton" class="icon-button" aria-label="Open Q&A mode" title="Q&A mode (Q)">Q<span class="sr-only">&amp;A</span></button><button id="safeButton" class="icon-button" aria-label="Toggle safe mode" title="Toggle Safe Mode">◐</button><button id="motionButton" class="icon-button" aria-label="Toggle reduced motion" title="Toggle Reduced Motion">≈</button><button id="fullButton" class="icon-button" aria-label="Toggle fullscreen" title="Fullscreen (F)">⛶</button></div>
       </header>
-      <section class="story-panel journey-card" id="storyPanel" aria-live="polite">
-        <div class="eyebrow"><span class="eyebrow-line"></span><span id="kicker">WELCOME TO THE LAKON DISTRICT</span><span id="stepCount">01 / 07</span></div>
+      <section class="story-panel journey-card" id="storyPanel" aria-live="polite"><button class="panel-close" data-close="card" aria-label="Close text panel" title="Close (H toggles)">×</button>
+        <div class="eyebrow"><span class="eyebrow-line"></span><span id="kicker">WELCOME TO THE LAKON DISTRICT</span><span id="stepCount">01 / 13</span></div>
         <h1 id="headline">Everyday places.<br/>Shared understanding.</h1>
         <p id="copy">Explore Indonesian Sign Language through familiar situations. One scenario. Two roles. One shared learning experience.</p>
         <div class="tag-row" id="tags"><span>5 everyday scenarios</span><span>2 perspectives</span></div>
         <div class="panel-actions"><button id="nextButton" class="primary-button">Begin the journey <span>→</span></button><span class="key-hint">SPACE TO CONTINUE</span></div>
       </section>
-      <aside class="scene-art" id="sceneArt" aria-hidden="true"><img id="sceneImage" src="/assets/lakon/coffee/panggung-barista-lambai.png" alt=""/><div class="scene-caption" id="sceneCaption">A moment at the counter</div></aside>
-      <section class="scene-copy journey-card" id="sceneCopy"><span class="scene-overline">ONE SCENARIO. TWO ROLES.</span><h2 id="sceneTitle">The conversation<br/>stays the same.</h2><p id="sceneDescription">A Deaf customer and a barista learn from each other within one familiar service moment.</p><button id="roleButton" class="text-button">Switch perspective <span>↔</span></button></section>
+      <section class="stage" id="stage"><button class="panel-close" data-close="stage" aria-label="Close illustration panel" title="Close (H toggles)">×</button></section>
+      
       <div class="route-caption" id="routeCaption">A bounded journey through five everyday encounters</div>
       <footer class="bottombar"><div class="progress-track"><div class="progress-fill" id="progressFill"></div></div><div class="footer-left"><span id="locationLabel">THE ENTRANCE</span><span class="separator">/</span><span id="chapterLabel">FROM VOCABULARY TO SITUATIONS</span></div><div class="footer-right"><span>← → OR SPACE</span><span class="separator">·</span><button id="notesButton" class="text-button notes-toggle">Presenter notes <span>⌄</span></button></div></footer>
       <div class="notes" id="notes" hidden></div>
       <div class="overlay" id="overlay" hidden><div class="overlay-shade"></div><div class="overlay-card" role="dialog" aria-modal="true" aria-labelledby="overlayTitle"><button class="close-button" id="closeOverlay" aria-label="Close">×</button><div class="eyebrow"><span class="eyebrow-line"></span><span id="overlayKicker">NAVIGATE THE CITY</span></div><h2 id="overlayTitle">Choose a destination</h2><div class="destination-grid" id="destinationGrid"></div><p class="overlay-hint">Press <kbd>ESC</kbd> to return to the story</p></div></div>
+      <div class="deck" id="deck" hidden><div class="deck-bar"><span>Draft Deck Presentasi · henny handayani</span><a href="https://www.canva.com/design/DAHW9ClivJk/MQ1_4SrmwHZtF3yXESItxA/view?utm_content=DAHW9ClivJk&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">Open in Canva ↗</a><button id="deckClose">Close ×</button></div><iframe id="deckFrame" title="Draft Deck Presentasi" allow="fullscreen"></iframe></div>
       <div class="toast" id="toast" role="status" aria-live="polite"></div>
       <div class="safe-banner" id="safeBanner" hidden>SAFE MODE · STATIC CAMERA · HIGH CONTRAST</div>
     </main>

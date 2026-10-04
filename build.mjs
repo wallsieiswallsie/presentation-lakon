@@ -4,7 +4,7 @@ import { resolve } from 'node:path';
 
 const root = fileURLToPath(new URL('.', import.meta.url));
 const dist = resolve(root, 'dist');
-const sources = ['index.html', 'app.js', 'styles.css', 'entrance.css'];
+const sources = ['index.html', 'app.js', 'styles.css', 'entrance.css', 'stage.css'];
 
 // Validate required inputs before replacing the previous build.
 for (const name of [...sources, 'public']) {

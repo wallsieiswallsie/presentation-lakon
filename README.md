@@ -22,24 +22,7 @@ npm.cmd start
 
 Development, preview (`npm run preview`) and production start use the same static server. Open `http://localhost:5173` locally when `PORT` is unset. The server listens on `0.0.0.0` and prioritizes `PORT`; 5173 is only the local fallback. Preview/start require an existing build.
 
-Build validates required inputs, replaces old `dist/`, copies the four presentation source files unchanged, and copies the contents of `public/` into the build root:
-
-```text
-dist/
-  index.html
-  app.js
-  styles.css
-  entrance.css
-  assets/lakon/
-    coffee/       (1 PNG)
-    common/       (10 SVG)
-    emergency/    (1 PNG)
-    healthcare/   (1 PNG)
-    interview/    (1 PNG)
-    transport/    (1 PNG)
-```
-
-For example, `public/assets/lakon/coffee/panggung-barista-lambai.png` becomes `dist/assets/lakon/coffee/panggung-barista-lambai.png`, served at `/assets/lakon/coffee/panggung-barista-lambai.png`. Missing assets return HTTP 404, not HTML. Only extensionless application routes outside `/assets/` use the index fallback; scene query strings work on refresh.
+Build validates required inputs, replaces old `dist/`, copies the five presentation source files (`index.html`, `app.js`, `styles.css`, `entrance.css`, `stage.css`) unchanged, and copies the contents of `public/` into the build root. Missing assets return HTTP 404, not HTML. Only extensionless application routes outside `/assets/` use the index fallback; scene query strings work on refresh.
 
 ## Railway / Railpack
 
@@ -54,20 +37,41 @@ See [Railpack Node.js detection](https://railpack.com/languages/node), [Railway 
 
 ## Controls
 
-- `Space` / `→` next; `←` previous; `1`–`7` jump to a story waypoint
-- `M` map overview; `Q` Q&A; `D` demo handoff to Coffee Shop
+- `Space` / `→` / `PageDown` (presentation clicker) next; `←` / `PageUp` previous. Each scene has beats: a press first reveals the next illustration, and the last beat moves the camera to the next scene. The dots next to `03 / 13` show the remaining beats.
+- `1`–`9` jump to a scene; `M` map overview (all 13 scenes); `Q` Q&A; `D` jump to the live demo
+- Changing scene: the panels close, the camera flies across the town, then the text card and illustration board open at the destination. Pressing next during the flight lands immediately.
+- `H` or the ▤ button shows/hides both panels; the × on each panel closes just that one (next beat reopens the board).
+- `C` or the **▶ Canva** button opens the Canva deck full-screen over everything (loaded only on first open, needs internet); close with the Close button (Esc/C work while focus is outside the slide).
 - `F` fullscreen; `S` Safe Mode; `R` Reduced Motion; `Esc` close overlays
-- Presenter notes are available from the bottom bar
+- Presenter notes (bottom bar) contain the full script line for each scene.
 
-Deep links support `?scene=entrance|crossroad|theatre|coffee|counter|lab|validation`, `?mode=qa`, `?safeMode=true`, and `?reducedMotion=true`.
+Deep links support `?scene=opening|gap|insight|users|loop|innovation|scope|demo|privacy|evidence|maturity|impact|closing`, scenario districts `?scene=healthcare|transport|interview|emergency&mode=qa`, plus `?safeMode=true` and `?reducedMotion=true`.
 
-## Asset selection
+## Scenes and illustrations
 
-The presentation imports only files copied into `public/assets/lakon/`. The source library in Downloads remains unchanged.
+The 13 scenes in `app.js` (`destinations`) follow `skrip.txt`. Each scene has a camera waypoint in the town and a `stage`: a list of pieces (members as characters, Panggung props, photos, SDG icons) that drop onto the cream board on the right. `x`/`y`/`w` are percentages of the board; `b` is the beat at which a piece appears.
 
-Used groups: the common LAKON logo, map-building SVGs and pedestrian SVGs; the Coffee Shop stage artwork for the hero and Across the Counter; and one stage illustration for each of the other scenario districts (healthcare, transport, interview and emergency). Map buildings are clickable and the scenario districts are also listed in the map overview.
+- `public/assets/lakon/tokoh/wajah-1..4/`: member-face characters from `Panggung-Lakon` (webp). `CAST` at the top of `app.js` sets which face plays which role.
+- `public/assets/lakon/props/`: props and cards from `Panggung-Lakon/aset/png`.
+- `public/assets/lakon/foto/`, `sdg/`: images downloaded from the internet (credits below; each credit also appears in the photo caption on screen).
 
-Not imported: the 20 MB source PowerPoint, duplicate PNG versions of map-building SVGs, and most individual characters, props, backgrounds and alternate poses. The continuous city is assembled from HTML/CSS and inline SVG; the Coffee Shop stage is the only illustration used in the central story route.
+## Image credits
+
+- Coffee shop: "Tamper Kopi", Pratechno, CC BY-SA 4.0, https://commons.wikimedia.org/wiki/File:Tamper_Kopi.jpg
+- Community health centre: "Puskesmas Sruweng Kebumen", SATELIT BM9, CC BY-SA 4.0, https://commons.wikimedia.org/wiki/File:Puskesmas_Sruweng_Kebumen.jpg
+- Train station: "Stasiun Tanah Abang 1", Gunawan Kartapranata, CC BY-SA 4.0, https://commons.wikimedia.org/wiki/File:Stasiun_Tanah_Abang_1.JPG
+- Emergency: "Ambulans PSC 119 YES", Scarzmouche, CC BY-SA 4.0, https://commons.wikimedia.org/wiki/File:AmbulansPSC119YES.jpg
+- Job interview: U.S. Army photo by Pfc. Deziree Keay, public domain, https://commons.wikimedia.org/wiki/File:Job_fair_gives_community_members_more_job_opportunities_(7578464).jpg
+- Deaf linguistic review: "Juru Bahasa Isyarat", Badak Ironman, CC BY 4.0, https://commons.wikimedia.org/wiki/File:Juru_Bahasa_Isyarat.jpg
+- Deaf co-learners: U.S. Embassy Jakarta (Indonesian Deaf Basketball), public domain, https://commons.wikimedia.org/wiki/File:-DubesKamala_menyambut_tim_Indonesian_Deaf_Basketball_di_Kedubes_AS_(54194725721).jpg
+- SDG 4.5 card: "Mau belajar bahasa isyarat? Ada aplikasinya lho.", USAID Indonesia, public domain, https://commons.wikimedia.org/wiki/File:Mau_belajar_bahasa_isyarat%3F_Ada_aplikasinya_lho._(15604552915).jpg
+- SDG 10.2 card: U.S. Embassy Jakarta (Indonesian Deaf Basketball), public domain, https://commons.wikimedia.org/wiki/File:-DubesKamala_menyambut_tim_Indonesian_Deaf_Basketball_di_Kedubes_AS_(54194983649).jpg
+- SDG 3.8 card: "Kegiatan Posyandu Desa Koto Cerenti", Refki Assadiky, CC BY-SA 4.0, https://commons.wikimedia.org/wiki/File:Kegiatan_Posyandu_Desa_Koto_Cerenti.jpg
+- SDG 8.5 card: "Barista Tunanetra", Arie Basuki, CC BY-SA 4.0, https://commons.wikimedia.org/wiki/File:Barista_Tunanetra.jpg
+- SDG 11.2 card: "Akses dari Halte Juanda menuju stasiun", Irvan Cahyo N, CC BY-SA 4.0, https://commons.wikimedia.org/wiki/File:Akses_dari_Halte_Juanda_menuju_stasiun.jpg
+- Hand landmarks diagram: Google MediaPipe documentation, Apache 2.0, https://ai.google.dev/edge/mediapipe/solutions/vision/hand_landmarker
+- Lighthouse logo: GoogleChrome/lighthouse, Apache 2.0
+- SDG icons 3, 4, 8, 10, 11: United Nations, https://www.un.org/sustainabledevelopment/news/communications-material/ (non-commercial informational use per UN SDG guidelines)
 
 ## Entrance district
 
@@ -77,7 +81,7 @@ The five supplied isometric building SVGs retain their original geometry with se
 
 Buildings are native buttons with labels, hover/focus feedback and keyboard activation. The plaza board opens the existing map. The healthcare and transport button IDs now match the existing scenario records. Scene exits restore both copy and camera, scenario links reload without an unwanted Q&A overlay, and dialog focus stays within its controls.
 
-This repository is a presentation, not the full learning application. It has no free-walking avatar, collision, proximity detection, learner completion state or scenario locks. The seven-stop presentation progress bar remains intact; no learning progression was invented. No new art is required to run the entrance. A future human-scale 3D implementation would require purpose-built assets and is outside this change.
+This repository is a presentation, not the full learning application. It has no free-walking avatar, collision, proximity detection, learner completion state or scenario locks. The 13-scene progress bar is presentation progress only; no learning progression was invented. A future human-scale 3D implementation would require purpose-built assets and is outside this change.
 
 ## Claim boundaries
 

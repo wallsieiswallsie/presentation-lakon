@@ -1,0 +1,49 @@
+Opening
+“Good morning, judges. Imagine walking into a coffee shop, a health centre, or a train station. You know exactly what you need, and the person in front of you wants to help—but the two of you cannot communicate in the same language. In many Deaf service interactions, the burden of adaptation still falls on the Deaf customer. We believe the service side should be prepared too.”
+
+Learning Gap
+“Knowing isolated signs is not the same as handling a conversation. A worker may know ‘payment’ or ‘ticket’, but still not know what comes next, how to respond, or how to recover when communication fails.”
+
+Insight
+“So instead of asking how to teach more vocabulary, we changed the unit of learning. Lakon begins with a situation: understand it, practise it, respond to it, and complete it.”
+
+Users
+“We begin with frontline service workers because they repeatedly handle short, structured encounters. Deaf users remain central as co-learners, stakeholders, and ultimately the linguistic authority behind validated production content.”
+
+Learning Loop
+“In the coffee-shop scenario, learners study only the signs needed for the encounter, practise them, and then use or interpret them within the complete interaction.”
+
+Innovation
+“And the same scenario works from two sides. The Deaf-side learner practises producing the sign. The service-worker side practises understanding and responding. The conversation does not change. The perspective does.”
+
+Scope
+“We apply this model to five bounded encounters: coffee shop, community healthcare, transport, job interview, and emergency. Rather than asking you to imagine it, let us show you.”
+
+Live demo
+Kamu demonstrasikan service-worker.
+Kemudian:
+“But this is still only one side.”
+
+Bring in teman.
+“Now the same encounter is running from the opposite role on my teammate’s device.”
+
+Teman gesture.
+“And that is the central idea of Lakon: not two separate courses, but one interaction understood from both sides.”
+
+Conversation/repair/progress.
+“The complete loop is learn, practise, rehearse, recover, and progress.”
+
+Privacy
+“What you just saw uses browser-side landmark processing and DTW-based comparison to produce corrective feedback. Lakon’s recognition pipeline does not require camera video to be uploaded to our server; the server handles the application, content, accounts and progress.”
+
+Evidence
+“Today we can demonstrate a functional five-scenario, two-role prototype, 69 passing unit tests, 21 passing end-to-end tests, Lighthouse accessibility scores of 100 on the audited pages, and a network capture with no image or video payload observed. These prove technical behaviour—not learning effectiveness.”
+
+Maturity
+“The technology is functional; the current sign content is exploratory. Production readiness requires Deaf-led linguistic review, institutional usability pilots, verification calibration, and later learning-effect evaluation.”
+
+Impact
+“The goal is to move from one worker practising one encounter to repeatable institutional capability. That primarily supports SDG 4 and SDG 10, with healthcare, employment and transport extending the pathway toward SDGs 3, 8 and 11.”
+
+Closing
+“We began with one question: when communication fails, who is expected to adapt? Lakon proposes that accessibility should not begin only after communication has already broken down. We can prepare both sides before the interaction happens. One scenario. Two roles. One shared learning experience. Thank you.”
