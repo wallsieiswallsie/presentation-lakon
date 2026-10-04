@@ -7,12 +7,50 @@ A standalone static presentation website. It uses a bounded illustrated city as 
 From this directory in PowerShell:
 
 ```powershell
+npm.cmd install
 npm.cmd run dev
-npm.cmd run build
-npm.cmd run preview
 ```
 
-Development runs at `http://127.0.0.1:5173`. Build writes the offline-ready site to `dist/`; preview serves that build at `http://127.0.0.1:4173`.
+Use Node.js 22.x (verified locally with 22.14.0) and npm 10.9.2. `npm run dev` builds the current source and serves `dist/`; restart it after source edits. There is no file watcher. In shells without PowerShell execution-policy restrictions, `npm` can be used instead of `npm.cmd`.
+
+To run a production build locally:
+
+```powershell
+npm.cmd run build
+npm.cmd start
+```
+
+Development, preview (`npm run preview`) and production start use the same static server. Open `http://localhost:5173` locally when `PORT` is unset. The server listens on `0.0.0.0` and prioritizes `PORT`; 5173 is only the local fallback. Preview/start require an existing build.
+
+Build validates required inputs, replaces old `dist/`, copies the four presentation source files unchanged, and copies the contents of `public/` into the build root:
+
+```text
+dist/
+  index.html
+  app.js
+  styles.css
+  entrance.css
+  assets/lakon/
+    coffee/       (1 PNG)
+    common/       (10 SVG)
+    emergency/    (1 PNG)
+    healthcare/   (1 PNG)
+    interview/    (1 PNG)
+    transport/    (1 PNG)
+```
+
+For example, `public/assets/lakon/coffee/panggung-barista-lambai.png` becomes `dist/assets/lakon/coffee/panggung-barista-lambai.png`, served at `/assets/lakon/coffee/panggung-barista-lambai.png`. Missing assets return HTTP 404, not HTML. Only extensionless application routes outside `/assets/` use the index fallback; scene query strings work on refresh.
+
+## Railway / Railpack
+
+- Select Railpack and use the repository root containing `package.json` as the service root.
+- Install uses npm and the committed `package-lock.json`; build is `npm run build` and start is `npm start` (`node server.mjs dist`). Leave custom Build/Start Command overrides unset so scripts are detected.
+- No manually configured environment variable is required. Railway supplies `PORT`; the server binds to `0.0.0.0` on that port. `NODE_ENV=production` is optional for this dependency-free static server.
+- Do not set `RAILPACK_SPA_OUTPUT_DIR`; Node serves the build. Remove stale port, build/start, or Node-version overrides if they conflict with this configuration.
+- Enable Public Networking / Generate Domain to expose the service. No domain is embedded in the source. An optional healthcheck can use `/`.
+- Commit source, `package.json` and `package-lock.json`. Keep `dist/`, `node_modules/` and environment files ignored. No `dist/` files were tracked at audit time. If tracked in another checkout, use `git rm -r --cached -- dist` to stop tracking while retaining local files.
+
+See [Railpack Node.js detection](https://railpack.com/languages/node), [Railway start/build commands](https://docs.railway.com/builds/build-and-start-commands), and [Railway networking requirements](https://docs.railway.com/networking/troubleshooting/application-failed-to-respond). Local checks establish repository compatibility; they do not prove a Railway deployment has succeeded.
 
 ## Controls
 

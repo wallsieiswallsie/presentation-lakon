@@ -3,9 +3,14 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": "22.x"
+  },
+  "packageManager": "npm@10.9.2",
   "scripts": {
     "build": "node build.mjs",
-    "dev": "node server.mjs . 5173",
-    "preview": "node server.mjs dist 4173"
+    "dev": "node build.mjs && node server.mjs dist",
+    "preview": "node server.mjs dist",
+    "start": "node server.mjs dist"
   }
 }
